@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SafeCampus — Student Safety</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone" id="phone">
+
+  <div class="statusbar"><span id="clock">9:41</span><span>SafeCampus</span><span id="conn-ind">●●●</span></div>
+
+  <!-- SPLASH -->
+  <div class="screen active" id="splash" style="padding:0;">
+    <div class="splash-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg></div>
+    <h1>SafeCampus</h1>
+    <p>Emergency contacts, safety guides, and quick help — always one tap away.</p>
+    <div style="width:100%;max-width:260px;display:flex;flex-direction:column;gap:10px;">
+      <button class="pill solid" style="width:100%;padding:14px;font-size:14px;" onclick="alert('Sign up flow (demo)'); go('home')">Sign Up</button>
+      <button class="pill" style="width:100%;padding:14px;font-size:14px;background:transparent;border-color:#3A4C5C;color:#fff;" onclick="alert('Log in flow (demo)'); go('home')">Log In</button>
+      <button style="width:100%;padding:6px;font-size:12.5px;background:none;border:none;color:#9FB3C0;text-decoration:underline;cursor:pointer;font-family:'Inter';" onclick="go('home')">Skip for now</button>
+    </div>
+  </div>
+
+  <!-- HOME -->
+  <div class="screen" id="home">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span>SafeCampus</div>
+      <div class="topbar-actions">
+        <button class="pill solid" onclick="alert('Sign up flow (demo)')">Sign Up</button>
+        <button class="icon-btn" onclick="alert('No new notifications right now.')"><span class="badge"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg></button>
+      </div>
+    </div>
+
+    <div class="sos-wrap">
+      <button class="sos-btn" onclick="showModal()">SOS</button>
+      <p class="sos-caption">Press for immediate emergency assistance.<br>Alerts your contacts and shares your location.</p>
+    </div>
+
+    <div class="section-title">Emergency Contacts</div>
+    <div class="grid2">
+      <div class="cat-card" onclick="go('contacts')"><div class="ic" style="background:var(--navy)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a6 6 0 00-6 6c0 5 6 12 6 12s6-7 6-12a6 6 0 00-6-6z"/></svg></div><h3>Police</h3><p>Emergency line — 24/7</p></div>
+      <div class="cat-card" onclick="go('contacts')"><div class="ic" style="background:var(--coral)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M8 2s-1 3 1 5-1 4 1 5 5-1 5-4c2 2 2 6-1 9a7 7 0 11-9-13c1-1 3-2 3-2z"/></svg></div><h3>Fire Dept</h3><p>Fire & rescue — 24/7</p></div>
+      <div class="cat-card" onclick="go('contacts')"><div class="ic" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></svg></div><h3>Hospital</h3><p>City General ER</p></div>
+      <div class="cat-card" onclick="go('contacts')"><div class="ic" style="background:var(--amber)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg></div><h3>School</h3><p>Campus security office</p></div>
+    </div>
+
+    <div class="section-title">Safety Categories</div>
+    <div class="grid2">
+      <div class="cat-card" onclick="go('guide')"><div class="ic" style="background:var(--coral)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M8 3s-3 3-3 7a5 5 0 0010 0c0-2-1-3-1-3s0 2-2 2c1-3-1-5-1-6-1 1-3 3-3 0z"/></svg></div><h3>Emergency Guide</h3><p>Fire, earthquake, flood & medical steps</p></div>
+      <div class="cat-card" onclick="go('tips')"><div class="ic" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg></div><h3>Safety Tips</h3><p>Everyday reminders by category</p></div>
+    </div>
+  </div>
+
+  <!-- CONTACTS -->
+  <div class="screen" id="contacts">
+    <div class="screen-head"><button class="back-btn" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button><h2>Emergency Contacts</h2></div>
+    <div class="contact-card"><div class="contact-ic" style="background:var(--navy)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a6 6 0 00-6 6c0 5 6 12 6 12s6-7 6-12a6 6 0 00-6-6z"/></svg></div><div><h3>Police</h3><p>Emergency line — 24/7</p></div><a class="call-btn" href="tel:911"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 3a2 2 0 01-.5 2L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012-.5c1 .4 2 .6 3 .7a2 2 0 011.7 2z"/></svg></a></div>
+    <div class="contact-card"><div class="contact-ic" style="background:var(--coral)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M8 2s-1 3 1 5-1 4 1 5 5-1 5-4c2 2 2 6-1 9a7 7 0 11-9-13c1-1 3-2 3-2z"/></svg></div><div><h3>Fire Department</h3><p>Fire & rescue — 24/7</p></div><a class="call-btn" href="tel:911"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 3a2 2 0 01-.5 2L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012-.5c1 .4 2 .6 3 .7a2 2 0 011.7 2z"/></svg></a></div>
+    <div class="contact-card"><div class="contact-ic" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></svg></div><div><h3>Hospital</h3><p>City General — Emergency Room</p></div><a class="call-btn" href="tel:+15551234567"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 3a2 2 0 01-.5 2L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012-.5c1 .4 2 .6 3 .7a2 2 0 011.7 2z"/></svg></a></div>
+    <div class="contact-card"><div class="contact-ic" style="background:var(--amber)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg></div><div><h3>School Emergency</h3><p>Campus security office</p></div><a class="call-btn" href="tel:+15559876543"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 3a2 2 0 01-.5 2L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012-.5c1 .4 2 .6 3 .7a2 2 0 011.7 2z"/></svg></a></div>
+
+    <div class="section-title" style="margin-top:18px;">Friends</div>
+    <div class="cat-card" onclick="go('friends')" style="display:flex;align-items:center;gap:13px;padding:14px;">
+      <div class="ic" style="background:var(--amber);margin-bottom:0;flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 21c0-3.5 3-5.5 6-5.5s6 2 6 5.5M15 21c0-2.5 1.7-4 4-4s4 1.5 4 4"/></svg></div>
+      <div><h3 style="margin-bottom:2px;">View Friends' Emergency Info</h3><p>Check on someone if you can't reach them</p></div>
+    </div>
+  </div>
+
+  <!-- GUIDE -->
+  <div class="screen" id="guide">
+    <div class="screen-head"><button class="back-btn" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button><h2>Emergency Guide</h2></div>
+    <div class="acc" onclick="toggleAcc(this)"><div class="acc-head"><div class="acc-ic" style="background:var(--coral)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M8 3s-3 3-3 7a5 5 0 0010 0c0-2-1-3-1-3s0 2-2 2c1-3-1-5-1-6-1 1-3 3-3 0z"/></svg></div><h3>Fire</h3><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-body"><ol><li>Alert others and pull the fire alarm.</li><li>Leave belongings and exit via the nearest stairwell.</li><li>Never use elevators.</li><li>Stay low if there's smoke.</li><li>Meet at the designated assembly point.</li></ol></div></div>
+    <div class="acc" onclick="toggleAcc(this)"><div class="acc-head"><div class="acc-ic" style="background:var(--navy)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 12h4l2-6 4 12 2-6h6"/></svg></div><h3>Earthquake</h3><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-body"><ol><li>Drop, cover, and hold on under sturdy furniture.</li><li>Stay away from windows and heavy fixtures.</li><li>If outdoors, move to an open area.</li><li>After shaking stops, check for injuries and exit carefully.</li></ol></div></div>
+    <div class="acc" onclick="toggleAcc(this)"><div class="acc-head"><div class="acc-ic" style="background:#5B7FE0"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 16c2-1 3 1 5 0s3 1 5 0 3 1 5 0M3 20c2-1 3 1 5 0s3 1 5 0 3 1 5 0"/><path d="M12 4v9"/></svg></div><h3>Flood</h3><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-body"><ol><li>Move to higher ground immediately.</li><li>Avoid walking or driving through flood water.</li><li>Unplug electrical appliances if safe to do so.</li><li>Follow official evacuation routes.</li></ol></div></div>
+    <div class="acc" onclick="toggleAcc(this)"><div class="acc-head"><div class="acc-ic" style="background:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s-8-4.5-8-11a5 5 0 019-3 5 5 0 019 3c0 6.5-8 11-8 11z"/></svg></div><h3>Medical Emergency</h3><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div><div class="acc-body"><ol><li>Check responsiveness and call for help.</li><li>Call emergency services or use the SOS button.</li><li>Apply first aid only if trained.</li><li>Stay with the person until help arrives.</li></ol></div></div>
+  </div>
+
+  <!-- PERSONAL INFO -->
+  <div class="screen" id="info">
+    <div class="screen-head"><button class="back-btn" onclick="go('settings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button><h2>Personal Info</h2></div>
+    <p class="page-sub">Kept on this device so responders can reach the right people fast.</p>
+    <div class="field"><label>Full Name</label><input id="pi-name" placeholder="e.g. Alex Santos"></div>
+    <div class="field"><label>Emergency Contact</label><input id="pi-contact" placeholder="Name & phone number"></div>
+    <div class="field"><label>Important Information</label><textarea id="pi-notes" placeholder="Allergies, medications, blood type..."></textarea></div>
+    <button class="btn" onclick="saveInfo()">Save Information</button>
+    <p class="save-msg" id="save-msg">Saved to this device.</p>
+  </div>
+
+  <!-- SAFETY TIPS -->
+  <div class="screen" id="tips">
+    <div class="screen-head"><button class="back-btn" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button><h2>Safety Tips</h2></div>
+    <div class="tip-cat"><h3>Campus Safety</h3>
+      <div class="tip-row"><span class="tdot"></span>Walk in well-lit, populated areas at night.</div>
+      <div class="tip-row"><span class="tdot"></span>Save campus security's number in your phone.</div>
+    </div>
+    <div class="tip-cat"><h3>Online Safety</h3>
+      <div class="tip-row"><span class="tdot"></span>Avoid sharing your live location publicly.</div>
+      <div class="tip-row"><span class="tdot"></span>Use strong, unique passwords for school accounts.</div>
+    </div>
+    <div class="tip-cat"><h3>Travel Safety</h3>
+      <div class="tip-row"><span class="tdot"></span>Share your route with a friend before heading out.</div>
+      <div class="tip-row"><span class="tdot"></span>Keep your phone charged before commuting.</div>
+    </div>
+    <div class="tip-cat"><h3>Dorm Safety</h3>
+      <div class="tip-row"><span class="tdot"></span>Always lock your door, even for quick errands.</div>
+      <div class="tip-row"><span class="tdot"></span>Know your building's fire exits in advance.</div>
+    </div>
+  </div>
+
+  <!-- FRIENDS -->
+  <div class="screen" id="friends">
+    <div class="screen-head"><button class="back-btn" onclick="go('contacts')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button><h2>Friends</h2></div>
+    <p class="page-sub">Access a friend's emergency info if you can't reach them.</p>
+    <div class="friend-card"><div class="avatar">MJ</div><div><h3>Maria Jimenez</h3><p>Shared her emergency info</p></div><button class="view-btn" onclick="alert('Contact: Dad — +1 555 222 1010\nAllergy: Penicillin')">View</button></div>
+    <div class="friend-card"><div class="avatar">RC</div><div><h3>Ryan Cruz</h3><p>Shared his emergency info</p></div><button class="view-btn" onclick="alert('Contact: Mom — +1 555 333 4040\nBlood type: O+')">View</button></div>
+    <div class="friend-card"><div class="avatar">JT</div><div><h3>Jenna Tan</h3><p>Shared her emergency info</p></div><button class="view-btn" onclick="alert('Contact: Sister — +1 555 444 7070\nNo known allergies')">View</button></div>
+  </div>
+
+  <!-- LOCATION -->
+  <div class="screen" id="location">
+    <div class="screen-head"><button class="back-btn" onclick="go('settings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button><h2>Share Location</h2></div>
+    <div class="map-box"><div class="map-pulse"></div><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-7.5 7-12a7 7 0 10-14 0c0 4.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+    <div class="field"><label>Message</label><textarea id="loc-msg">I need help. Here is my current location: [live location link]</textarea></div>
+    <button class="btn" onclick="shareLocation()">Share My Location</button>
+    <p class="save-msg" id="loc-msg-status">Location request sent.</p>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="screen" id="about">
+    <div class="screen-head"><button class="back-btn" onclick="go('settings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button><h2>About</h2></div>
+    <div class="about-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg></div>
+    <h3 style="margin-bottom:6px;">SafeCampus v1.0</h3>
+    <p class="page-sub">A quick-access safety companion built for students — emergency contacts, guides, and location sharing in one place.</p>
+    <div class="section-title">Developers</div>
+    <div class="dev-card"><div class="avatar">JD</div><div><h3 style="font-size:14px;">Jordan Diaz</h3><p style="font-size:11.5px;color:var(--muted);">Product & Design</p></div></div>
+    <div class="dev-card"><div class="avatar">SL</div><div><h3 style="font-size:14px;">Sam Lee</h3><p style="font-size:11.5px;color:var(--muted);">Engineering</p></div></div>
+  </div>
+
+  <!-- WHISTLE -->
+  <div class="screen" id="whistle">
+    <div class="screen-head"><h2>Emergency Whistle</h2></div>
+    <div class="whistle-wrap">
+      <button class="whistle-btn" id="whistle-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 10a3 3 0 106 0"/></svg></button>
+      <p class="whistle-status" id="whistle-status">Press and hold to sound alarm</p>
+    </div>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="screen" id="settings">
+    <div class="screen-head"><h2>Settings</h2></div>
+    <span class="status-chip" id="conn-chip"><span class="cdot"></span>Online — connected</span>
+    <div class="set-row"><div><div class="set-label">Dark Mode</div><div class="set-sub">Switch the app's appearance</div></div><div class="switch" id="dark-switch" onclick="toggleDark()"></div></div>
+    <div class="set-row"><div><div class="set-label">Notifications</div><div class="set-sub">Safety alerts & reminders</div></div><div class="switch on" onclick="this.classList.toggle('on')"></div></div>
+    <div class="set-row"><div><div class="set-label">Offline Mode</div><div class="set-sub">Simulate no internet connection</div></div><div class="switch" id="offline-switch" onclick="toggleOffline()"></div></div>
+    <div class="set-row" style="cursor:pointer;" onclick="go('info')"><div><div class="set-label">Personal Info</div><div class="set-sub">Your ID & emergency details</div></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+    <div class="set-row" style="cursor:pointer;" onclick="go('location')"><div><div class="set-label">Share Location</div><div class="set-sub">Send your live location fast</div></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+    <div class="set-row" style="cursor:pointer;" onclick="go('about')"><div><div class="set-label">About SafeCampus</div><div class="set-sub">Version & developers</div></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></div>
+    <div class="set-row" style="cursor:pointer;" onclick="alert('Signed out (demo)')"><div><div class="set-label" style="color:var(--coral)">Sign Out</div></div></div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav" id="bottomnav">
+    <button class="nav-item active" data-s="home" onclick="go('home')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11l8-7 8 7v9a2 2 0 01-2 2h-4v-6H10v6H6a2 2 0 01-2-2z"/></svg><span>Home</span></button>
+    <button class="nav-item" data-s="contacts" onclick="go('contacts')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 3a2 2 0 01-.5 2L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012-.5c1 .4 2 .6 3 .7a2 2 0 011.7 2z"/></svg><span>Contacts</span></button>
+    <button class="nav-item" data-s="whistle" onclick="go('whistle')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9 10a3 3 0 106 0"/></svg><span>Whistle</span></button>
+    <button class="nav-item" data-s="settings" onclick="go('settings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.9 2.9l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.6V21a2 2 0 01-4 0v-.2a1.7 1.7 0 00-1-1.6 1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.9-2.9l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.6-1H3a2 2 0 010-4h.2a1.7 1.7 0 001.6-1 1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.9-2.9l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.6V3a2 2 0 014 0v.2a1.7 1.7 0 001 1.6 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.9 2.9l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.6 1h.2a2 2 0 010 4h-.2a1.7 1.7 0 00-1.6 1z"/></svg><span>Settings</span></button>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-bg" id="modal-bg">
+    <div class="modal">
+      <div class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L2.4 18a2 2 0 001.7 3h15.8a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg></div>
+      <h3>Emergency Alert Sent</h3>
+      <p>Your emergency contacts have been notified and your location is being shared.</p>
+      <button class="btn" style="margin-top:0;" onclick="hideModal()">Close</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
